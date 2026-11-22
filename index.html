@@ -55,7 +55,7 @@ function update(){
   const now = new Date();
   const diff = now - start;
   const day = Math.floor(diff/(1000*60*60*24));
-  document.getElementById("together").innerText = `已经在一起 ${day} 天啦`;
+  document.getElementById("together").innerText = `已经相遇 ${day} 天啦`;
   document.getElementById("day1").innerText = getDiff(start);
   document.getElementById("day2").innerText = getDiff(meet);
   document.getElementById("day3").innerText = getDiff(oneYear);
