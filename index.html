@@ -3,44 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我们的纪念日</title>
+<title>💖我们的纪念日</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif}
 body{background:#fff0f5;color:#444;text-align:center;padding:40px 20px}
-.box{max-width:600px;margin:0 auto;background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 16px #ffd6e0}
-h1{color:#ff6b8b;margin-bottom:20px}
-.time{font-size:24px;margin:20px 0;color:#d6336c;font-weight:bold}
-.item{margin:16px 0;padding:12px;border-bottom:1px solid #f8d7e2}
-.item h3{color:#ff85a1}
+.box{max-width:620px;margin:0 auto;background:#fff;border-radius:24px;padding:34px;box-shadow:0 4px 20px #ffd6e0}
+h1{color:#ff6b8b;margin-bottom:24px;font-size:28px}
+.time{font-size:26px;margin:24px 0;color:#d6336c;font-weight:bold}
+.item{margin:18px 0;padding:14px;border-bottom:1px solid #f8d7e2;text-align:left}
+.item h3{color:#ff85a1;margin-bottom:6px}
+.album{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;justify-content:center}
+.album img{width:140px;height:140px;border-radius:12px;object-fit:cover}
+.heart{position:fixed;pointer-events:none;color:#ff7799;animation:fall linear infinite}
 </style>
 </head>
 <body>
 <div class="box">
-<h1>💖 我们的小世界</h1>
+<h1>💖 梦奶酪与小屋檐</h1>
 <div class="time" id="together"></div>
 <div class="item">
-<h3>✅ 在一起纪念日</h3>
+<h3>✅ 相遇纪念日</h3>
 <p>2025-09-21</p>
+<p id="day1"></p>
 </div>
 <div class="item">
 <h3>✅ 第一次见面</h3>
-<p>期待</p>
+<p>期待见面</p>
+<p id="day2"></p>
 </div>
 <div class="item">
 <h3>✅ 一周年</h3>
-<p>2025-09-21</p>
+<p>2026-09-21</p>
+<p id="day3"></p>
 </div>
+</div>
+<audio controls loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+
 </div>
 <script>
-// 修改这里：你们在一起的日期
+// 修改这里的日期
 const start = new Date("2025-09-21");
+const meet = new Date("敬请期待");
+const oneYear = new Date("2026-09-21");
+function getDiff(s){
+  const n = new Date();
+  const d = Math.floor((n - s)/(1000*60*60*24));
+  return d>0 ? `距离这天已经 ${d} 天` : `还有 ${Math.abs(d)} 天到纪念日`;
+}
 function update(){
   const now = new Date();
   const diff = now - start;
   const day = Math.floor(diff/(1000*60*60*24));
   document.getElementById("together").innerText = `已经在一起 ${day} 天啦`;
+  document.getElementById("day1").innerText = getDiff(start);
+  document.getElementById("day2").innerText = getDiff(meet);
+  document.getElementById("day3").innerText = getDiff(oneYear);
 }
 update();
+// 爱心飘落
+function createHeart(){
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerText = "❤";
+  h.style.left = Math.random()*100+"vw";
+  h.style.top = "-30px";
+  h.style.fontSize = (Math.random()*18+10)+"px";
+  h.style.animationDuration = (Math.random()*4+3)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+}
+setInterval(createHeart,400);
 </script>
 </body>
 </html>
+
