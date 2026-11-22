@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我们的纪念日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif}
+body{background:#fff0f5;color:#444;text-align:center;padding:40px 20px}
+.box{max-width:600px;margin:0 auto;background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 16px #ffd6e0}
+h1{color:#ff6b8b;margin-bottom:20px}
+.time{font-size:24px;margin:20px 0;color:#d6336c;font-weight:bold}
+.item{margin:16px 0;padding:12px;border-bottom:1px solid #f8d7e2}
+.item h3{color:#ff85a1}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>💖 我们的小世界</h1>
+<div class="time" id="together"></div>
+<div class="item">
+<h3>✅ 在一起纪念日</h3>
+<p>2025-09-21</p>
+</div>
+<div class="item">
+<h3>✅ 第一次见面</h3>
+<p>期待</p>
+</div>
+<div class="item">
+<h3>✅ 一周年</h3>
+<p>2025-09-21</p>
+</div>
+</div>
+<script>
+// 修改这里：你们在一起的日期
+const start = new Date("2025-09-21");
+function update(){
+  const now = new Date();
+  const diff = now - start;
+  const day = Math.floor(diff/(1000*60*60*24));
+  document.getElementById("together").innerText = `已经在一起 ${day} 天啦`;
+}
+update();
+</script>
+</body>
+</html>
